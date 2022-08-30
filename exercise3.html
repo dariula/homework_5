@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Задание выполнено с учетом занятия! -->
+  <style>
+    #contMenu {
+        width: fit-content;
+        /* border: 1px solid blue; */
+        margin: 50px auto;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+    }
+
+    a {
+        padding: 16px;
+        margin: 2px;
+        text-decoration: none;
+        border-radius: 15px;
+        transition: .3s;
+    }
+
+    #picMenu {
+       width: fit-content;
+       margin: auto;
+    }
+
+    img { 
+      border-radius: 20px; 
+    }
+
+</style>
+
+<style id="userStyle">
+
+        /* a {
+            background: #24bbc6;
+            color: #ffffff;
+        }   
+        
+        a:hover {
+            background: #f8a312;
+        }   */
+
+</style>
+</head>
+<body>
+<h1>Создать меню</h1>
+
+<form name="formMenu">
+
+    <p>
+        Пункты меню: <input type="text" name="elemMenu" size="50" value="Главная, О компании, Новости">
+    </p>
+
+    <p>
+        Цвет текста: <input type="color" name="fc" value="#ffffff">
+
+    <p>
+        Цвет фона: <input type="color" name="bc" value="#24bbc6"> 
+    </p>
+
+    <p>
+        Цвет наведения: <input type="color" name="hc" value="#f8a312"> 
+    </p>
+
+    <p>
+        <input type="button" name="but1" value="Создать меню" onclick="menu()">
+
+        <input type="reset" value="Очистить">
+    </p>
+
+</form>
+
+<div id="contMenu">
+<!-- <ul>
+    <li><a href="#">Пункт меню</a></li>
+    <li><a href="#">Пункт меню</a></li>
+    <li><a href="#">Пункт меню</a></li>
+</ul> -->
+</div>
+
+<div id="picMenu">
+    <!-- <img src="images/1.jpg" alt=""> -->
+</div>
+
+
+<script>
+
+        function menu() {
+
+let elemMenu = formMenu.elemMenu.value;
+let fc = formMenu.fc.value; 
+let bc = formMenu.bc.value;
+let hc = formMenu.hc.value;
+
+// console.log(elemMenu,fc,bc,hc);
+
+let arrMenu = elemMenu.split(", ");
+     
+    // console.log(arrMenu);     
+    
+    let s1 = "", s2 = "";
+
+    for (i=0; i < arrMenu.length; i++) 
+s1 += `<li onclick="myImg(${i+1})"><a href="#">${arrMenu[i]}</a></li>`;     
+
+s1 = `<ul>${s1}</ul>`;
+
+contMenu.innerHTML = s1;
+
+   s2 = `         
+        a {
+                background: ${bc};
+                color: ${fc};
+            }   
+            
+            a:hover {
+                background: ${hc};
+            }  
+
+    `;
+
+    userStyle.innerHTML = s2;
+
+    formMenu.but1.value = "Изменить меню";       
+
+
+        }
+
+        function myImg(n) {
+picMenu.innerHTML = `<img src="../images/${n}.jpg" alt="">`;  
+        }
+
+</script>
+<!-- Задание выполнено с учетом занятия! -->
+</body>
+</html>

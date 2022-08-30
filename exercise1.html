@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sumPoints() {
+      let points = [];
+      while (true) {
+        let value = prompt("Введите набранное количество очков:", "");
+        if (value === "" || value === null || value === !isFinite(value)) break;
+        points.push(+value);
+      }
+      let sum = 0;
+      for (let point of points) {
+      sum += point;
+      }
+      return sum;
+    }
+    alert(sumPoints());
+  </script>
+</body>
+</html>
